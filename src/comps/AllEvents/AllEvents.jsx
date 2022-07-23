@@ -1,0 +1,41 @@
+import { useEffect, useState } from 'react';
+import EventCard from '../../elements/EventCard/EventCard';
+import EventCardEdit from '../../elements/EventCardEdit/EventCard';
+import useEvent from '../../hooks/useEvent';
+
+import './AllEvents.css';
+
+const AllEvents = () => {
+    const {getAllEvents} = useEvent();
+    const [events, setEvents] = useState([]);
+
+    const loadEvents = async () => {
+        const events = await getAllEvents();
+        if(!events) {
+            alert('Can not load events!Try again!');
+        } else {
+            setEvents(events);
+        }
+    }
+
+    useEffect(() => {
+        loadEvents();
+    }, []);
+
+    return(
+        <div className='all-events-container'>
+            {events.map((event, key) => {
+                return <EventCard
+                    title={event.name}
+                    date={event.date}
+                    id={event._id}
+                    avatar={event.avatar}
+                    link={event.link}
+                    desc={event.desc}
+                    />
+            })}
+        </div>
+    )
+}
+
+export default AllEvents;

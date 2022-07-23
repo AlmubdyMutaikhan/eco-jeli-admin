@@ -1,13 +1,93 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--raleway);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --raleway: 'Raleway', sans-serif;
+  --select-border: #75a20b;
+  --select-focus: #75a20b;
+  --select-arrow: var(--select-border);
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+::-webkit-scrollbar-track {
+  background: white;
+  border: 0.2px solid rgb(211, 206, 206);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: #A1CA44;
+  border-radius: 50px;
+  height: 20px;
+}
+
+.page-main-section {
+  height: 100vh;
+  width: 100%;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+.green-header {
+  width: 80%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #75a20b;
+  font-size: 17px;
+}
+
+.avatar-file-submit {
+  background: white;
+  width: 100%;
+}
+.avatar-file-submit::-webkit-file-upload-button {
+  visibility: hidden;
+  background: white;
+}
+
+
+.avatar-file-submit::before {
+  content: 'Загрузить фото клуба';
+  display: inline-block;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  font-family: var(--montserrat);
+}
+.avatar-file-submit:hover::before {
+  border-color: black;
+}
+.avatar-file-submit:active::before {
+  background: white;
 }
